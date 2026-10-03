@@ -1,3 +1,4 @@
+# APNs 优先走英国伦敦；Apple 国内服务直连，海外服务与媒体走代理。
 # Morin-stash 公共模板：节点字段为占位符，替换后才能使用。
 # Morin-stash：2026-10-03。规则集均从自己的仓库调用；未添加 TikTok 专用分流。
 # 局域网直连优先，广告拦截；国内默认直连，国外默认英国伦敦；AI 与 Crypto 保留独立分组。
@@ -37,6 +38,8 @@ dns:
     - '*.jegotrip.com.cn'
     - '*.icitymobile.mobi'
     - id6.me
+    - push.apple.com
+    - '*.push.apple.com'
 http:
   force-http-engine:
     - '*:80'
@@ -98,13 +101,52 @@ proxy-groups:
     type: select
     proxies:
       - 英国伦敦
+  - name: APNs
+    type: select
+    proxies:
+      - 英国伦敦
+      - DIRECT
+  - name: Apple
+    type: select
+    proxies:
+      - DIRECT
+      - 英国伦敦
+  - name: AppleProxy
+    type: select
+    proxies:
+      - 英国伦敦
+      - DIRECT
+  - name: AppleMedia
+    type: select
+    proxies:
+      - 英国伦敦
+      - DIRECT
 rules:
   - RULE-SET,Lan,DIRECT
+  - RULE-SET,APNs,APNs
   - RULE-SET,Adblock,REJECT
   - RULE-SET,AI,AI
   - RULE-SET,OpenAI,AI
   - RULE-SET,Crypto,Crypto
-  - RULE-SET,Apple,国内网站
+  - RULE-SET,AppleID,Apple
+  - RULE-SET,FindMy,Apple
+  - RULE-SET,AppleMail,Apple
+  - RULE-SET,Siri,Apple
+  - RULE-SET,iCloudPrivateRelay,AppleProxy
+  - RULE-SET,AppStore,AppleProxy
+  - RULE-SET,TestFlight,AppleProxy
+  - RULE-SET,SystemOTA,Apple
+  - RULE-SET,AppleTV,AppleMedia
+  - RULE-SET,AppleMusic,AppleMedia
+  - RULE-SET,AppleNews,AppleMedia
+  - RULE-SET,AppleMedia,AppleMedia
+  - RULE-SET,AppleProxy,AppleProxy
+  - RULE-SET,iCloud,Apple
+  - RULE-SET,AppleDev,Apple
+  - RULE-SET,AppleFirmware,Apple
+  - RULE-SET,AppleHardware,Apple
+  - RULE-SET,AppleDomain,Apple
+  - RULE-SET,Apple,Apple
   - RULE-SET,Google,国外网站
   - RULE-SET,Microsoft,国内网站
   - RULE-SET,WeChat,国内网站
@@ -206,4 +248,118 @@ rule-providers:
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Crypto.yaml
+    interval: 86400
+  APNs:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/APNs.yaml
+    interval: 86400
+  AppleProxy:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AppleProxy.yaml
+    interval: 86400
+  AppleMedia:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AppleMedia.yaml
+    interval: 86400
+  AppStore:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AppStore.yaml
+    interval: 86400
+  AppleID:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AppleID.yaml
+    interval: 86400
+  iCloud:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/iCloud.yaml
+    interval: 86400
+  iCloudPrivateRelay:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/iCloudPrivateRelay.yaml
+    interval: 86400
+  SystemOTA:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/SystemOTA.yaml
+    interval: 86400
+  TestFlight:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/TestFlight.yaml
+    interval: 86400
+  FindMy:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/FindMy.yaml
+    interval: 86400
+  Siri:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Siri.yaml
+    interval: 86400
+  AppleMail:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AppleMail.yaml
+    interval: 86400
+  AppleDev:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AppleDev.yaml
+    interval: 86400
+  AppleFirmware:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AppleFirmware.yaml
+    interval: 86400
+  AppleHardware:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AppleHardware.yaml
+    interval: 86400
+  AppleTV:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AppleTV.yaml
+    interval: 86400
+  AppleMusic:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AppleMusic.yaml
+    interval: 86400
+  AppleNews:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AppleNews.yaml
+    interval: 86400
+  AppleDomain:
+    type: http
+    behavior: domain
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AppleDomain.yaml
     interval: 86400

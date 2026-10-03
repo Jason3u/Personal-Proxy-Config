@@ -4,13 +4,13 @@
 
 ## 配置
 
-15 个规则集通过自己的 GitHub Raw 链接调用，每类在 `rules` 中仅一行，不展开域名清单。国际媒体使用 Streaming（ACL4SSR）和 YouTube（BM7）；未设置 TikTok 专用分流，Streaming 内的 TikTok 段已剔除。
+34 个规则集通过自己的 GitHub Raw 链接调用，每类在 `rules` 中仅一行，不展开域名清单。国际媒体使用 Streaming（ACL4SSR）和 YouTube（BM7）；未设置 TikTok 专用分流，Streaming 内的 TikTok 段已剔除。
 
-局域网直连置于最前，随后拦截广告、匹配 AI / OpenAI 与 Crypto，再匹配各项服务和通用国内/国外规则。国内网站默认 DIRECT，国外网站默认英国伦敦；Telegram、X、AI、Crypto 和 InternationalStreaming 保留独立策略组。
+局域网直连置于最前，随后 APNs 推送走英国伦敦，再拦截广告、匹配 AI / OpenAI 与 Crypto，以及各项服务和通用国内/国外规则。国内网站默认 DIRECT，国外网站默认英国伦敦；Telegram、X、AI、Crypto 和 InternationalStreaming 保留独立策略组。
 
-OpenAI 规则指向现有 AI 分组，不另建 AI 分组。Apple、Microsoft、WeChat、China 指向国内网站，Google、Global 指向国外网站。GEOIP 国内直连与 MATCH 国外兜底置于最后。
+OpenAI 规则指向现有 AI 分组，不另建 AI 分组。Apple 服务按 APNs、Apple、AppleProxy、AppleMedia 四个策略组处理；具体服务及优先级见 [Apple.md](Apple.md)。Microsoft、WeChat、China 指向国内网站，Google、Global 指向国外网站。GEOIP 国内直连与 MATCH 国外兜底置于最后。
 
-Adblock 与 Global 使用 domain；其他使用 classical。全部为 YAML / HTTP 规则集，间隔 86400 秒，未指定缓存 path。Build 1319 原生启动仍需手机验证。
+Adblock、Global 与 AppleDomain 使用 domain；其他使用 classical。全部为 YAML / HTTP 规则集，间隔 86400 秒，未指定缓存 path。原生启动与 APNs 推送仍需手机验证。
 
 ## 规则说明
 
