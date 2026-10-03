@@ -1,0 +1,6 @@
+private/
+local/
+*.private.yaml
+*.local.yaml
+.env
+__pycache__/

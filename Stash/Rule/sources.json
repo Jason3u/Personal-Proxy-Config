@@ -1,0 +1,43 @@
+{
+  "updated_at": "2026-10-03T18:16:41+08:00",
+  "repository": "Jason3u/Proxy-Rules-Collection",
+  "mirror_mode": "manual_snapshot",
+  "rules": {
+    "X": {
+      "path": "Stash/Rule/X.yaml",
+      "source_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5fe08949edb51935c67e0766dc4bc94c0dad0509/rule/Clash/Twitter/Twitter.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/Stash/Rule/X.yaml",
+      "rules": 33,
+      "sha256": "67c46c3988da5cdc387eacee945c2950464691af0e2746929455cd9295c3ff2b",
+      "source_revision": "5fe08949edb51935c67e0766dc4bc94c0dad0509",
+      "modifications": "none"
+    },
+    "Telegram": {
+      "path": "Stash/Rule/Telegram.yaml",
+      "source_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5fe08949edb51935c67e0766dc4bc94c0dad0509/rule/Clash/Telegram/Telegram.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/Stash/Rule/Telegram.yaml",
+      "rules": 46,
+      "sha256": "e78efc3f18069f1f1e3f88c15cd55f85424367b58ce8474af08c2fdf054704e0",
+      "source_revision": "5fe08949edb51935c67e0766dc4bc94c0dad0509",
+      "modifications": "none"
+    },
+    "AI": {
+      "path": "Stash/Rule/AI.yaml",
+      "source_url": "https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/clash/Ai.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/Stash/Rule/AI.yaml",
+      "rules": 101,
+      "sha256": "f32c38ed10fb498dcc3b8e65a1767ac6fc95e005b1cbfe0a60e35c1f78635f13",
+      "source_revision": "15943707af1738e7d6e1c4548eb7c6e013a3e4c8",
+      "modifications": "none"
+    },
+    "Crypto": {
+      "path": "Stash/Rule/Crypto.yaml",
+      "source_url": "https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/clash/Trading.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/Stash/Rule/Crypto.yaml",
+      "rules": 54,
+      "sha256": "60970735e8fbb57f64d2c41040add4115dc6144af5ca92019a7c74e579889f24",
+      "source_revision": "15943707af1738e7d6e1c4548eb7c6e013a3e4c8",
+      "modifications": "NAME comment changed from Trading to Crypto; payload unchanged"
+    }
+  }
+}

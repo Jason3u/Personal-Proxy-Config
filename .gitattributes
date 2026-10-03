@@ -1,0 +1,2 @@
+# Preserve mirrored rule files exactly, including upstream whitespace and line endings.
+Stash/Rule/*.yaml -text

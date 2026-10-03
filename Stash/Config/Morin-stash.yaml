@@ -1,0 +1,124 @@
+# Morin-stash 公共模板：2026-10-03。节点字段为占位符，替换后才能使用。
+# AI、Crypto、Telegram、X 引用自己的规则备份；流媒体待选择，Apple 尚未启用。
+# 无自定义规则集缓存 path；Build 1319 启动结果仍需在手机复测。
+mode: rule
+log-level: info
+proxy-providers: {}
+proxies:
+  - name: 英国伦敦
+    type: vless
+    server: node.example.invalid
+    port: 443
+    uuid: 00000000-0000-0000-0000-000000000000
+    encryption: YOUR_VLESS_ENCRYPTION
+    tls: true
+    sni: www.example.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: YOUR_REALITY_PUBLIC_KEY
+      short-id: YOUR_REALITY_SHORT_ID
+      support-x25519mlkem768: true
+    network: xhttp
+    xhttp-opts:
+      mode: auto
+      path: /YOUR_XHTTP_PATH
+    udp: true
+dns:
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://doh.pub/dns-query
+    - 223.5.5.5
+    - 119.29.29.29
+  fake-ip-filter:
+    - '*.cmpassport.com'
+    - '*.jegotrip.com.cn'
+    - '*.icitymobile.mobi'
+    - id6.me
+http:
+  force-http-engine:
+    - '*:80'
+proxy-groups:
+  - name: 兜底分流
+    type: select
+    proxies:
+      - 英国伦敦
+    interval: -1
+  - name: AI
+    type: select
+    proxies:
+      - 英国伦敦
+    interval: -1
+  - name: Telegram
+    type: select
+    proxies:
+      - 英国伦敦
+    interval: -1
+  - name: X
+    type: select
+    proxies:
+      - 英国伦敦
+    interval: -1
+  - name: InternationalStreaming
+    type: select
+    proxies:
+      - 英国伦敦
+    interval: -1
+  - name: Crypto
+    type: select
+    proxies:
+      - 英国伦敦
+    interval: -1
+  - name: 所有节点
+    type: select
+    interval: 86400
+    lazy: true
+    proxies:
+      - 英国伦敦
+  - name: 自动选择
+    type: url-test
+    interval: 86400
+    lazy: true
+    proxies:
+      - 英国伦敦
+  - name: 英国节点
+    type: url-test
+    interval: 86400
+    lazy: true
+    proxies:
+      - 英国伦敦
+rules:
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,224.0.0.0/24,DIRECT,no-resolve
+  - RULE-SET,AI,AI
+  - RULE-SET,Crypto,Crypto
+  - RULE-SET,Telegram,Telegram
+  - RULE-SET,X,X
+  - GEOIP,CN,DIRECT
+  - MATCH,兜底分流
+rule-providers:
+  AI:
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/Stash/Rule/AI.yaml
+    interval: 86400
+  Crypto:
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/Stash/Rule/Crypto.yaml
+    interval: 86400
+  Telegram:
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/Stash/Rule/Telegram.yaml
+    interval: 86400
+  X:
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/Stash/Rule/X.yaml
+    interval: 86400

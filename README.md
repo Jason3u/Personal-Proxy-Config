@@ -1,85 +1,39 @@
-# Proxy Rules Collection
+# Personal Proxy Config
 
-个人代理分流规则合集，同时提供 **Quantumult X（QX）** 和 **Clash / Mihomo（Android、Windows、macOS）** 格式。
+个人代理配置与分流规则备份。当前主要维护 Stash；仓库名保持 `Proxy-Rules-Collection`，原有链接继续可用。
 
-## 目录结构
+## 目录
 
 ```text
-.
-├── qx/       # Quantumult X filter_remote 格式（.list）
-└── clash/    # Clash / Mihomo rule-provider 格式（.yaml）
+Stash/
+  Config/Morin-stash.yaml   # 脱敏配置模板
+  Rule/                    # AI、Crypto、X、Telegram 规则快照
+    sources.json           # 来源、版本、规则数量、SHA-256
+licenses/                  # 第三方规则许可证
+scripts/sync_bm7.py         # 手动同步选中的 BM7 规则
+clash/                     # 原有 Clash 规则，保留兼容
+qx/                        # 原有 Quantumult X 规则，保留兼容
 ```
 
-除标注「仅 QX」的规则外，两种格式内容对应，区别只在客户端要求的语法和文件结构。不要把 `qx/` 文件直接当作 Clash 规则集导入，也不要把 `clash/` YAML 直接填入 QX 的 `filter_remote`。
+## 使用
 
-## 规则列表
+下载 [Morin-stash 模板](Stash/Config/Morin-stash.yaml)，将 `proxies` 中的占位节点替换为自己的完整节点。仓库模板不能直接连通；私人节点、订阅与密钥仅保存在本机。
 
-| 规则 | 覆盖内容 | QX 文件 | Clash 文件 |
-| --- | --- | --- | --- |
-| AppStore | App Store 搜索与目录主机 | [qx/AppStore.list](qx/AppStore.list) | 不提供（仅 QX） |
-| X | X / Twitter 及相关域名与 IP | [`qx/X.list`](qx/X.list) | [`clash/X.yaml`](clash/X.yaml) |
-| Binance | 币安及生态域名 | [`qx/Binance.list`](qx/Binance.list) | [`clash/Binance.yaml`](clash/Binance.yaml) |
-| OKX | OKX、OKEX、OKLink 及 CDN | [`qx/OKX.list`](qx/OKX.list) | [`clash/OKX.yaml`](clash/OKX.yaml) |
-| Bybit | Bybit 全球站、备用站及 API | [`qx/Bybit.list`](qx/Bybit.list) | [`clash/Bybit.yaml`](clash/Bybit.yaml) |
-| Bitget | Bitget 海外站、中文区及备用域名 | [`qx/Bitget.list`](qx/Bitget.list) | [`clash/Bitget.yaml`](clash/Bitget.yaml) |
-| Gate | Gate.io、Gate.com 及备用域名 | [`qx/Gate.list`](qx/Gate.list) | [`clash/Gate.yaml`](clash/Gate.yaml) |
-| Telegram | 官网/分享链接/Telegraph/贴纸与媒体 CDN 及官方 DC IP 段（App 直连 IP 不查 DNS，IP 规则是接管核心流量的唯一手段） | [`qx/Telegram.list`](qx/Telegram.list) | [`clash/Telegram.yaml`](clash/Telegram.yaml) |
-| Cornix | 官网、Dashboard、API、WebSocket 及第三方运行时依赖（intercom/country.is/mixpanel/hotjar/sentry/whop 等） | [`qx/Cornix.list`](qx/Cornix.list) | [`clash/Cornix.yaml`](clash/Cornix.yaml) |
-| Fomo | 官方网站、应用及永续合约相关域名 | [`qx/Fomo.list`](qx/Fomo.list) | [`clash/Fomo.yaml`](clash/Fomo.yaml) |
-| TradingView | 官网、中文站、图表数据与 API | [`qx/TradingView.list`](qx/TradingView.list) | [`clash/TradingView.yaml`](clash/TradingView.yaml) |
+详细说明见 [Stash](Stash/README.md)，来源见 [规则清单](Stash/Rule/README.md)。规则存放在自己的仓库中，配置通过 GitHub Raw 引用，不把域名清单展开到主配置。
 
-## Quantumult X 使用方法
+AI、Crypto、Telegram、X 已接入。Apple 不启用；流媒体等待选择，相关流量暂时使用通用分流与兜底。
 
-在 QX 配置的 `[filter_remote]` 段引用 `qx/` 下的文件。策略组名称应与 QX 配置中的名称一致。
+## 维护与备份
 
-```ini
-https://cdn.jsdelivr.net/gh/Jason3u/Proxy-Rules-Collection@main/qx/X.list, tag=X 规则, force-policy=X, enabled=true
-https://cdn.jsdelivr.net/gh/Jason3u/Proxy-Rules-Collection@main/qx/Binance.list, tag=Binance 规则, force-policy=Binance, enabled=true
-```
+规则是快照，客户端每天读取本仓库最新文件；这不代表本仓库自动跟随上游更新。BM7 规则可用 `python scripts/sync_bm7.py` 手动更新，检查差异后提交。AI 保留现有原文快照，Crypto 保留自己的合并规则。
 
-也可以把 `https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/qx/` 替换为 CDN 前缀。
+Git 提交历史作为版本备份，可按提交恢复配置和规则。原 `clash/`、`qx/` 文件保持原内容，新配置统一引用 `Stash/Rule/`。仓库不启用定时同步。
 
-## Clash / Mihomo 使用方法
+## 来源
 
-Clash Android（如 Mihomo、Clash Meta for Android、部分 Clash Verge 衍生客户端）通常支持 YAML rule-provider。将 `clash/` 下的 URL 添加到配置的 `rule-providers`，再在 `rules` 中用 `RULE-SET` 引用：
+- [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)：X（Twitter）、Telegram；保留作者注释及 [GPL-2.0 许可证](licenses/blackmatrix7-GPL-2.0.txt)。
+- [ddgksf2013 Ai.yaml](https://ddgksf2013.top/filter/Ai.yaml)：AI，保留先前复制的原文。
+- 本仓库原 `clash/Trading.yaml`：Crypto；合并 Binance、OKX、Bybit、Bitget、Gate、Cornix、Fomo、TradingView。
+- [jnlaoshu/MySelf](https://github.com/jnlaoshu/MySelf)：参考目录组织方式，未复制其配置或 Apple 文件。
 
-```yaml
-rule-providers:
-  x:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://cdn.jsdelivr.net/gh/Jason3u/Proxy-Rules-Collection@main/clash/X.yaml
-    path: ./ruleset/x.yaml
-    interval: 86400
-
-rules:
-  - RULE-SET,x,你的代理策略组
-```
-
-其他规则只需替换名称和 URL，例如 `binance`、`okx`、`bybit`、`bitget`、`gate`、`cornix`。规则文件使用 `payload` 字段和 Mihomo 的 `DOMAIN-SUFFIX`、`DOMAIN-KEYWORD`、`IP-CIDR` 语法。
-
-> 如果 Android 客户端不接受 `format: yaml` 或 `behavior: classical`，请升级到支持 Mihomo / Clash Meta 内核的版本；不同客户端的配置界面名称可能不同。
-
-## 规则优先级
-
-将 `RULE-SET` 放在通用兜底规则（例如 `MATCH`）之前。如果同一域名还命中了更具体的规则，应把更具体的规则放在前面。
-
-## 更新与缓存
-
-规则更新后，客户端需要手动更新远程规则或等待 `interval` 到期。jsDelivr 可能存在短暂缓存；需要立即验证时可改用 GitHub Raw 地址。
-
-## 安全提示
-
-- 规则仓库不包含订阅链接、账号密码或访问 token。
-- 请不要把真实订阅地址提交到公开仓库。
-- 修改规则后先在客户端校验语法，再启用配置。
-
-## 免责声明
-
-规则仅用于个人网络分流和测试。请遵守所在地区法律法规、服务条款及目标平台的使用政策。
-
-## App Store（仅 QX）
-
-qx/AppStore.list 用于 apps.apple.com 子域及 iTunes 搜索/目录接口。需创建 AppStore 策略组，并使用 force-policy=AppStore、inserted-resource=true、opt-parser=false 引用，放在通用 Apple 直连资源之前。该规则不包含 APNs，不同步 Clash。
-
+第三方文件保留其各自作者和许可；BM7 许可证适用于对应的规则镜像，不替换其他来源的许可。
