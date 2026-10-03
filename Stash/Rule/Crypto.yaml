@@ -1,7 +1,7 @@
 # NAME: Crypto
 # AUTHOR: Jason3u
 # Combined: Binance, OKX, Bybit, Bitget, Gate, Cornix, Fomo, TradingView
-# Source: https://github.com/Jason3u/Proxy-Rules-Collection/tree/main/clash
+# Source: https://github.com/Jason3u/Proxy-Rules-Collection/tree/15943707af1738e7d6e1c4548eb7c6e013a3e4c8/clash
 # Updated: 2026-10-02; source rule files retained for compatibility.
 payload:
   - DOMAIN-SUFFIX,binance.com
