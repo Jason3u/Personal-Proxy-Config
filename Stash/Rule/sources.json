@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-03T18:16:41+08:00",
+  "updated_at": "2026-10-03T18:56:19+08:00",
   "repository": "Jason3u/Personal-Proxy-Config",
   "mirror_mode": "manual_snapshot",
   "rules": {
@@ -10,7 +10,12 @@
       "rules": 33,
       "sha256": "67c46c3988da5cdc387eacee945c2950464691af0e2746929455cd9295c3ff2b",
       "source_revision": "5fe08949edb51935c67e0766dc4bc94c0dad0509",
-      "modifications": "none"
+      "modifications": "none",
+      "behavior": "classical",
+      "source_repository": "blackmatrix7/ios_rule_script",
+      "source_branch": "master",
+      "upstream_path": "rule/Clash/Twitter/Twitter.yaml",
+      "bytes": 1191
     },
     "Telegram": {
       "path": "Stash/Rule/Telegram.yaml",
@@ -19,7 +24,12 @@
       "rules": 46,
       "sha256": "e78efc3f18069f1f1e3f88c15cd55f85424367b58ce8474af08c2fdf054704e0",
       "source_revision": "5fe08949edb51935c67e0766dc4bc94c0dad0509",
-      "modifications": "none"
+      "modifications": "none",
+      "behavior": "classical",
+      "source_repository": "blackmatrix7/ios_rule_script",
+      "source_branch": "master",
+      "upstream_path": "rule/Clash/Telegram/Telegram.yaml",
+      "bytes": 1590
     },
     "AI": {
       "path": "Stash/Rule/AI.yaml",
@@ -28,7 +38,8 @@
       "rules": 101,
       "sha256": "f32c38ed10fb498dcc3b8e65a1767ac6fc95e005b1cbfe0a60e35c1f78635f13",
       "source_revision": "15943707af1738e7d6e1c4548eb7c6e013a3e4c8",
-      "modifications": "none"
+      "modifications": "none",
+      "behavior": "classical"
     },
     "Crypto": {
       "path": "Stash/Rule/Crypto.yaml",
@@ -37,7 +48,223 @@
       "rules": 54,
       "sha256": "467fdb7ad4a70b9c1751f23946f043a41a438b9aa997a15be53db1250d1b18f7",
       "source_revision": "15943707af1738e7d6e1c4548eb7c6e013a3e4c8",
-      "modifications": "NAME comment changed from Trading to Crypto; source comment points to historical commit in renamed repository; payload unchanged"
+      "modifications": "NAME comment changed from Trading to Crypto; source comment points to historical commit in renamed repository; payload unchanged",
+      "behavior": "classical"
+    },
+    "Adblock": {
+      "source_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5fe08949edb51935c67e0766dc4bc94c0dad0509/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml",
+      "upstream_path": "rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml",
+      "source_repository": "blackmatrix7/ios_rule_script",
+      "source_branch": "master",
+      "source_revision": "5fe08949edb51935c67e0766dc4bc94c0dad0509",
+      "behavior": "domain",
+      "rules": 37692,
+      "sha256": "a14191c99336e91daf0b8ddb156dfa070c1fea9972c1581ab8cde0b93f28d2b5",
+      "bytes": 835793,
+      "types": {
+        "domain": 37692
+      },
+      "path": "Stash/Rule/Adblock.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Adblock.yaml",
+      "modifications": "none"
+    },
+    "Apple": {
+      "source_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5fe08949edb51935c67e0766dc4bc94c0dad0509/rule/Clash/Apple/Apple.yaml",
+      "upstream_path": "rule/Clash/Apple/Apple.yaml",
+      "source_repository": "blackmatrix7/ios_rule_script",
+      "source_branch": "master",
+      "source_revision": "5fe08949edb51935c67e0766dc4bc94c0dad0509",
+      "behavior": "classical",
+      "rules": 33,
+      "sha256": "9f81f8e6ee8485d4553544d7dcefd6e4b2e9534f6306c7e4ee38427a20898de1",
+      "bytes": 1239,
+      "types": {
+        "DOMAIN-KEYWORD": 7,
+        "IP-CIDR": 10,
+        "IP-CIDR6": 3,
+        "PROCESS-NAME": 13
+      },
+      "path": "Stash/Rule/Apple.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Apple.yaml",
+      "modifications": "none"
+    },
+    "Google": {
+      "source_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5fe08949edb51935c67e0766dc4bc94c0dad0509/rule/Clash/Google/Google.yaml",
+      "upstream_path": "rule/Clash/Google/Google.yaml",
+      "source_repository": "blackmatrix7/ios_rule_script",
+      "source_branch": "master",
+      "source_revision": "5fe08949edb51935c67e0766dc4bc94c0dad0509",
+      "behavior": "classical",
+      "rules": 701,
+      "sha256": "dfb4bf0a0095e48f024fbb7c31564a928e6c7d450b662aca9803119489a9237c",
+      "bytes": 22654,
+      "types": {
+        "DOMAIN": 1,
+        "DOMAIN-SUFFIX": 684,
+        "DOMAIN-KEYWORD": 5,
+        "IP-CIDR": 4,
+        "IP-CIDR6": 1,
+        "PROCESS-NAME": 6
+      },
+      "path": "Stash/Rule/Google.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Google.yaml",
+      "modifications": "none"
+    },
+    "Microsoft": {
+      "source_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5fe08949edb51935c67e0766dc4bc94c0dad0509/rule/Clash/Microsoft/Microsoft.yaml",
+      "upstream_path": "rule/Clash/Microsoft/Microsoft.yaml",
+      "source_repository": "blackmatrix7/ios_rule_script",
+      "source_branch": "master",
+      "source_revision": "5fe08949edb51935c67e0766dc4bc94c0dad0509",
+      "behavior": "classical",
+      "rules": 670,
+      "sha256": "a289a1d52394e92ceee26a5c83953cd292609717d39fb2970d189dc7877b2a4d",
+      "bytes": 23208,
+      "types": {
+        "DOMAIN": 1,
+        "DOMAIN-SUFFIX": 663,
+        "DOMAIN-KEYWORD": 4,
+        "PROCESS-NAME": 2
+      },
+      "path": "Stash/Rule/Microsoft.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Microsoft.yaml",
+      "modifications": "none"
+    },
+    "WeChat": {
+      "source_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5fe08949edb51935c67e0766dc4bc94c0dad0509/rule/Clash/WeChat/WeChat.yaml",
+      "upstream_path": "rule/Clash/WeChat/WeChat.yaml",
+      "source_repository": "blackmatrix7/ios_rule_script",
+      "source_branch": "master",
+      "source_revision": "5fe08949edb51935c67e0766dc4bc94c0dad0509",
+      "behavior": "classical",
+      "rules": 31,
+      "sha256": "10a541b6a4a2d13b47c61bc67fca72c78ba9c0a024bc439e3d83f8e398abb60a",
+      "bytes": 1145,
+      "types": {
+        "DOMAIN": 8,
+        "DOMAIN-SUFFIX": 22,
+        "IP-ASN": 1
+      },
+      "path": "Stash/Rule/WeChat.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/WeChat.yaml",
+      "modifications": "none"
+    },
+    "OpenAI": {
+      "source_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5fe08949edb51935c67e0766dc4bc94c0dad0509/rule/Clash/OpenAI/OpenAI.yaml",
+      "upstream_path": "rule/Clash/OpenAI/OpenAI.yaml",
+      "source_repository": "blackmatrix7/ios_rule_script",
+      "source_branch": "master",
+      "source_revision": "5fe08949edb51935c67e0766dc4bc94c0dad0509",
+      "behavior": "classical",
+      "rules": 35,
+      "sha256": "cf66c50e7cfbe0aa0e9e249bfa8897d152ae35b38ab6db2936ef62860b7b61b4",
+      "bytes": 1469,
+      "types": {
+        "DOMAIN": 7,
+        "DOMAIN-SUFFIX": 24,
+        "DOMAIN-KEYWORD": 1,
+        "IP-CIDR": 2,
+        "IP-ASN": 1
+      },
+      "path": "Stash/Rule/OpenAI.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/OpenAI.yaml",
+      "modifications": "none"
+    },
+    "YouTube": {
+      "source_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5fe08949edb51935c67e0766dc4bc94c0dad0509/rule/Clash/YouTube/YouTube.yaml",
+      "upstream_path": "rule/Clash/YouTube/YouTube.yaml",
+      "source_repository": "blackmatrix7/ios_rule_script",
+      "source_branch": "master",
+      "source_revision": "5fe08949edb51935c67e0766dc4bc94c0dad0509",
+      "behavior": "classical",
+      "rules": 183,
+      "sha256": "2f84cc9d35c8559ebea4c43aa9b30bb43b36313d70684f23a359f1acabb879bb",
+      "bytes": 5935,
+      "types": {
+        "DOMAIN-SUFFIX": 179,
+        "DOMAIN-KEYWORD": 1,
+        "IP-CIDR": 2,
+        "IP-CIDR6": 1
+      },
+      "path": "Stash/Rule/YouTube.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/YouTube.yaml",
+      "modifications": "none"
+    },
+    "China": {
+      "source_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5fe08949edb51935c67e0766dc4bc94c0dad0509/rule/Clash/China/China.yaml",
+      "upstream_path": "rule/Clash/China/China.yaml",
+      "source_repository": "blackmatrix7/ios_rule_script",
+      "source_branch": "master",
+      "source_revision": "5fe08949edb51935c67e0766dc4bc94c0dad0509",
+      "behavior": "classical",
+      "rules": 30,
+      "sha256": "51c5809d65d1eaa98e8d644523b30d566bffa262ff43888313f18edb87cc44b3",
+      "bytes": 1062,
+      "types": {
+        "DOMAIN-KEYWORD": 9,
+        "IP-CIDR": 17,
+        "IP-CIDR6": 4
+      },
+      "path": "Stash/Rule/China.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/China.yaml",
+      "modifications": "none"
+    },
+    "Lan": {
+      "source_url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/5fe08949edb51935c67e0766dc4bc94c0dad0509/rule/Clash/Lan/Lan.yaml",
+      "upstream_path": "rule/Clash/Lan/Lan.yaml",
+      "source_repository": "blackmatrix7/ios_rule_script",
+      "source_branch": "master",
+      "source_revision": "5fe08949edb51935c67e0766dc4bc94c0dad0509",
+      "behavior": "classical",
+      "rules": 140,
+      "sha256": "8849caf69972ee648507a872bf6aff7efb7dd1f9988f29a26a506201408b40b0",
+      "bytes": 5165,
+      "types": {
+        "DOMAIN": 7,
+        "DOMAIN-SUFFIX": 115,
+        "IP-CIDR": 14,
+        "IP-CIDR6": 4
+      },
+      "path": "Stash/Rule/Lan.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Lan.yaml",
+      "modifications": "none"
+    },
+    "Streaming": {
+      "source_url": "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/7102021bafc77e8d19377603d8b39d3a37cc0264/Clash/Providers/ProxyMedia.yaml",
+      "upstream_path": "Clash/Providers/ProxyMedia.yaml",
+      "source_repository": "ACL4SSR/ACL4SSR",
+      "source_branch": "master",
+      "source_revision": "7102021bafc77e8d19377603d8b39d3a37cc0264",
+      "behavior": "classical",
+      "rules": 358,
+      "sha256": "b00fd916d7bc6849132f09f0ff835eaa34d808cd1e3e8a05de022e4520b84282",
+      "bytes": 13098,
+      "types": {
+        "DOMAIN-SUFFIX": 255,
+        "DOMAIN-KEYWORD": 25,
+        "DOMAIN": 70,
+        "IP-CIDR": 18
+      },
+      "path": "Stash/Rule/Streaming.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Streaming.yaml",
+      "modifications": "Removed original TikTok section: 10 rules; all other payload entries and order preserved."
+    },
+    "Global": {
+      "source_url": "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/e58adc285bec8d5a9573bc68b30417dc6f83b1d0/proxy.txt",
+      "upstream_path": "proxy.txt",
+      "source_repository": "Loyalsoldier/clash-rules",
+      "source_branch": "release",
+      "source_revision": "e58adc285bec8d5a9573bc68b30417dc6f83b1d0",
+      "behavior": "domain",
+      "rules": 27110,
+      "sha256": "249df96c002b0367a0fb7aedb2c811ba8c2183d022a0a3d348541dd5e987ff7e",
+      "bytes": 618174,
+      "types": {
+        "domain": 27110
+      },
+      "path": "Stash/Rule/Global.yaml",
+      "raw_url": "https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Global.yaml",
+      "modifications": "none"
     }
   }
 }

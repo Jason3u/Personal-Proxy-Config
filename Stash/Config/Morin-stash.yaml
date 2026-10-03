@@ -1,6 +1,7 @@
-# Morin-stash 公共模板：2026-10-03。节点字段为占位符，替换后才能使用。
-# AI、Crypto、Telegram、X 引用自己的规则备份；流媒体待选择，Apple 尚未启用。
-# 无自定义规则集缓存 path；Build 1319 启动结果仍需在手机复测。
+# Morin-stash 公共模板：节点字段为占位符，替换后才能使用。
+# Morin-stash：2026-10-03。规则集均从自己的仓库调用；未添加 TikTok 专用分流。
+# 局域网直连优先，广告拦截；国内默认直连，国外默认英国伦敦；AI 与 Crypto 保留独立分组。
+# 不设置规则集自定义缓存 path；Build 1319 启动仍需在手机复测。
 mode: rule
 log-level: info
 proxy-providers: {}
@@ -88,37 +89,121 @@ proxy-groups:
     lazy: true
     proxies:
       - 英国伦敦
+  - name: 国内网站
+    type: select
+    proxies:
+      - DIRECT
+      - 英国伦敦
+  - name: 国外网站
+    type: select
+    proxies:
+      - 英国伦敦
 rules:
-  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
-  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-  - IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
-  - IP-CIDR,224.0.0.0/24,DIRECT,no-resolve
+  - RULE-SET,Lan,DIRECT
+  - RULE-SET,Adblock,REJECT
   - RULE-SET,AI,AI
+  - RULE-SET,OpenAI,AI
   - RULE-SET,Crypto,Crypto
+  - RULE-SET,Apple,国内网站
+  - RULE-SET,Google,国外网站
+  - RULE-SET,Microsoft,国内网站
+  - RULE-SET,WeChat,国内网站
   - RULE-SET,Telegram,Telegram
   - RULE-SET,X,X
-  - GEOIP,CN,DIRECT
-  - MATCH,兜底分流
+  - RULE-SET,YouTube,InternationalStreaming
+  - RULE-SET,Streaming,InternationalStreaming
+  - RULE-SET,China,国内网站
+  - RULE-SET,Global,国外网站
+  - GEOIP,CN,国内网站
+  - MATCH,国外网站
 rule-providers:
+  Adblock:
+    type: http
+    behavior: domain
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Adblock.yaml
+    interval: 86400
+  Apple:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Apple.yaml
+    interval: 86400
+  Google:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Google.yaml
+    interval: 86400
+  Microsoft:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Microsoft.yaml
+    interval: 86400
+  WeChat:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/WeChat.yaml
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Telegram.yaml
+    interval: 86400
+  OpenAI:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/OpenAI.yaml
+    interval: 86400
+  X:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/X.yaml
+    interval: 86400
+  YouTube:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/YouTube.yaml
+    interval: 86400
+  Streaming:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Streaming.yaml
+    interval: 86400
+  China:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/China.yaml
+    interval: 86400
+  Global:
+    type: http
+    behavior: domain
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Global.yaml
+    interval: 86400
+  Lan:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Lan.yaml
+    interval: 86400
   AI:
+    type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AI.yaml
     interval: 86400
   Crypto:
+    type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Crypto.yaml
-    interval: 86400
-  Telegram:
-    behavior: classical
-    format: yaml
-    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Telegram.yaml
-    interval: 86400
-  X:
-    behavior: classical
-    format: yaml
-    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/X.yaml
     interval: 86400
