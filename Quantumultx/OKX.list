@@ -1,6 +1,6 @@
 # NAME: OKX
 # AUTHOR: Jason3u
-# REPO: https://github.com/Jason3u/Proxy-Rules-Collection
+# REPO: https://github.com/Jason3u/Personal-Proxy-Config
 # 说明: OKX 欧易分流规则（自建，补充 blackmatrix7 缺失的 CDN/链上域名）
 host-suffix,okx.com,OKX
 host-suffix,okex.com,OKX

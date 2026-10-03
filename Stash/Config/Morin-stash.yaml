@@ -105,20 +105,20 @@ rule-providers:
   AI:
     behavior: classical
     format: yaml
-    url: https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/Stash/Rule/AI.yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/AI.yaml
     interval: 86400
   Crypto:
     behavior: classical
     format: yaml
-    url: https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/Stash/Rule/Crypto.yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Crypto.yaml
     interval: 86400
   Telegram:
     behavior: classical
     format: yaml
-    url: https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/Stash/Rule/Telegram.yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/Telegram.yaml
     interval: 86400
   X:
     behavior: classical
     format: yaml
-    url: https://raw.githubusercontent.com/Jason3u/Proxy-Rules-Collection/main/Stash/Rule/X.yaml
+    url: https://raw.githubusercontent.com/Jason3u/Personal-Proxy-Config/main/Stash/Rule/X.yaml
     interval: 86400

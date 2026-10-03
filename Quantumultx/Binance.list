@@ -1,6 +1,6 @@
 # NAME: Binance
 # AUTHOR: Jason3u
-# REPO: https://github.com/Jason3u/Proxy-Rules-Collection
+# REPO: https://github.com/Jason3u/Personal-Proxy-Config
 # 说明: Binance 币安分流规则（自建，参考 blackmatrix7 并补充官方域名/生态域名）
 host-suffix,binance.com,Binance
 host-suffix,binance.vision,Binance

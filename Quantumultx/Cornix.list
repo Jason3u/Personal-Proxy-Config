@@ -1,6 +1,6 @@
 # NAME: Cornix
 # AUTHOR: Jason3u
-# REPO: https://github.com/Jason3u/Proxy-Rules-Collection
+# REPO: https://github.com/Jason3u/Personal-Proxy-Config
 # 说明: Cornix 自动交易平台分流规则
 # 覆盖官网/dashboard/API/WebSocket（均为 cornix.io 同源，含 wss://dashboard.cornix.io/ws/ws/）
 # 以及 dashboard 实际加载的第三方运行时依赖（2026-09-06 从 dashboard.cornix.io JS 包实测提取）：

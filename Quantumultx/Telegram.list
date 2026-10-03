@@ -1,6 +1,6 @@
 # NAME: Telegram
 # AUTHOR: Jason3u
-# REPO: https://github.com/Jason3u/Proxy-Rules-Collection
+# REPO: https://github.com/Jason3u/Personal-Proxy-Config
 # 说明: Telegram 分流规则（域名对齐 blackmatrix7，IP 段为 TG 官方数据中心 CIDR）
 # 关键：TG App 收发消息直连数据中心 IP，不经过 DNS 解析——
 #       只配域名规则永远匹配不到 App 核心流量，必须配合 ip-cidr / ip6-cidr 才能完整接管

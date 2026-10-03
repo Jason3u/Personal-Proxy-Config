@@ -1,5 +1,5 @@
 # NAME: TradingView
 # AUTHOR: Jason3u
-# REPO: https://github.com/Jason3u/Proxy-Rules-Collection
+# REPO: https://github.com/Jason3u/Personal-Proxy-Config
 # 说明: TradingView 分流规则（覆盖官网/中文站/图表数据/静态资源/API，均为 tradingview.com 子域名）
 host-suffix,tradingview.com,TradingView

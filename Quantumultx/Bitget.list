@@ -1,6 +1,6 @@
 # NAME: Bitget
 # AUTHOR: Jason3u
-# REPO: https://github.com/Jason3u/Proxy-Rules-Collection
+# REPO: https://github.com/Jason3u/Personal-Proxy-Config
 # 说明: Bitget 分流规则（自建，含海外站/中文区/备用域名）
 host-suffix,bitget.com,Bitget
 host-suffix,bitget.site,Bitget
